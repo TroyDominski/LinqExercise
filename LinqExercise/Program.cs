@@ -57,12 +57,16 @@ namespace LinqExercise
             employees.Where(e => e.YearsOfExperience <= 10 && e.Age > 26).Average(e => e.YearsOfExperience);
             Console.WriteLine(employees.Average(e => e.YearsOfExperience));
             //TODO: Add an employee to the end of the list without using employees.Add()
-            employees = employees.Append(new Employee
-                { Age = 28, FirstName = "John", LastName = "Doe", YearsOfExperience = 10 })
-                .ToList();
+            employees = employees.Append(new Employee("John", "Doe", 31, 10)).ToList();
+            
+           
+            
 
             Console.WriteLine();
-
+            foreach (var employee in employees)
+            {
+                Console.WriteLine(employee.FullName);
+            }
             Console.ReadLine();
         }
 
